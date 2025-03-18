@@ -174,7 +174,7 @@ export class Deployment extends workload.Workload implements IScalable {
    *
    * @param options Options to determine details of the service and port exposed.
    */
-  public exposeViaService(options: DeploymentExposeViaServiceOptions = {}): service.Service {
+  public exposeViaService(options: DeploymentExposeViaServiceOptions = {}): service.IService {
     const myPorts = container.extractContainerPorts(this);
     const myPortNumbers = myPorts.map(p => p.number);
     const ports: service.ServicePort[] = options.ports ?? myPorts.map(p => ({
